@@ -228,7 +228,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmScheduleAdd";
-            this.Text = "frmScheduleAdd";
+            this.Text = "esemkaAirlines - New Schedule";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmScheduleAdd_FormClosing);
             this.Load += new System.EventHandler(this.frmScheduleAdd_Load);
             this.ResumeLayout(false);

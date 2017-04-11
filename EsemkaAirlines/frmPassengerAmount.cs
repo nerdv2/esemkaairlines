@@ -63,12 +63,14 @@ namespace EsemkaAirlines
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
-            frmSeatChoose form = new frmSeatChoose();
-            form.Owner = this;
+            if(!string.IsNullOrWhiteSpace(txtAmount.Text)){
+                frmSeatChoose form = new frmSeatChoose();
+                form.Owner = this;
             
-            int amount = int.Parse(txtAmount.Text);
-            for(int i=0;i<amount;i++){
-                form.ShowDialog();
+                int amount = int.Parse(txtAmount.Text);
+                for(int i=0;i<amount;i++){
+                    form.ShowDialog();
+                }
             }
         }
     }

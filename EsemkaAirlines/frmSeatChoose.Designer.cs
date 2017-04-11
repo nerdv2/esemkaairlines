@@ -32,14 +32,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPassenger = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cmbSeatRow = new System.Windows.Forms.ComboBox();
+            this.cmbSeatNo = new System.Windows.Forms.ComboBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnPassenger = new System.Windows.Forms.Button();
+            this.btnSeatPreview = new System.Windows.Forms.Button();
+            this.btnProcess = new System.Windows.Forms.Button();
+            this.labelID = new System.Windows.Forms.Label();
+            this.labelFlightID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -79,13 +81,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Passenger";
             // 
-            // comboBox1
+            // cmbPassenger
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(128, 86);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(233, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cmbPassenger.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPassenger.FormattingEnabled = true;
+            this.cmbPassenger.Location = new System.Drawing.Point(128, 86);
+            this.cmbPassenger.Name = "cmbPassenger";
+            this.cmbPassenger.Size = new System.Drawing.Size(233, 21);
+            this.cmbPassenger.TabIndex = 7;
             // 
             // label5
             // 
@@ -96,77 +99,103 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Seat Number";
             // 
-            // comboBox2
+            // cmbSeatRow
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(128, 124);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(110, 21);
-            this.comboBox2.TabIndex = 9;
+            this.cmbSeatRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeatRow.FormattingEnabled = true;
+            this.cmbSeatRow.Location = new System.Drawing.Point(128, 124);
+            this.cmbSeatRow.Name = "cmbSeatRow";
+            this.cmbSeatRow.Size = new System.Drawing.Size(110, 21);
+            this.cmbSeatRow.TabIndex = 9;
             // 
-            // comboBox3
+            // cmbSeatNo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(251, 124);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(110, 21);
-            this.comboBox3.TabIndex = 10;
+            this.cmbSeatNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeatNo.FormattingEnabled = true;
+            this.cmbSeatNo.Location = new System.Drawing.Point(251, 124);
+            this.cmbSeatNo.Name = "cmbSeatNo";
+            this.cmbSeatNo.Size = new System.Drawing.Size(110, 21);
+            this.cmbSeatNo.TabIndex = 10;
             // 
-            // button1
+            // btnRefresh
             // 
-            this.button1.Location = new System.Drawing.Point(379, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRefresh.Location = new System.Drawing.Point(379, 84);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // button2
+            // btnPassenger
             // 
-            this.button2.Location = new System.Drawing.Point(469, 84);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "New Passenger";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPassenger.Location = new System.Drawing.Point(469, 84);
+            this.btnPassenger.Name = "btnPassenger";
+            this.btnPassenger.Size = new System.Drawing.Size(133, 23);
+            this.btnPassenger.TabIndex = 12;
+            this.btnPassenger.Text = "New Passenger";
+            this.btnPassenger.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSeatPreview
             // 
-            this.button3.Location = new System.Drawing.Point(379, 122);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Preview Seats";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSeatPreview.Location = new System.Drawing.Point(379, 122);
+            this.btnSeatPreview.Name = "btnSeatPreview";
+            this.btnSeatPreview.Size = new System.Drawing.Size(142, 23);
+            this.btnSeatPreview.TabIndex = 13;
+            this.btnSeatPreview.Text = "Preview Seats";
+            this.btnSeatPreview.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnProcess
             // 
-            this.button4.Location = new System.Drawing.Point(566, 168);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnProcess.Location = new System.Drawing.Point(522, 168);
+            this.btnProcess.Name = "btnProcess";
+            this.btnProcess.Size = new System.Drawing.Size(119, 23);
+            this.btnProcess.TabIndex = 14;
+            this.btnProcess.Text = "Process Booking";
+            this.btnProcess.UseVisualStyleBackColor = true;
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(527, 9);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(10, 13);
+            this.labelID.TabIndex = 15;
+            this.labelID.Text = "-";
+            this.labelID.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelFlightID
+            // 
+            this.labelFlightID.AutoSize = true;
+            this.labelFlightID.Location = new System.Drawing.Point(527, 36);
+            this.labelFlightID.Name = "labelFlightID";
+            this.labelFlightID.Size = new System.Drawing.Size(10, 13);
+            this.labelFlightID.TabIndex = 16;
+            this.labelFlightID.Text = "-";
+            this.labelFlightID.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmSeatChoose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 203);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.labelFlightID);
+            this.Controls.Add(this.labelID);
+            this.Controls.Add(this.btnProcess);
+            this.Controls.Add(this.btnSeatPreview);
+            this.Controls.Add(this.btnPassenger);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.cmbSeatNo);
+            this.Controls.Add(this.cmbSeatRow);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbPassenger);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmSeatChoose";
-            this.Text = "frmSeatChoose";
+            this.Text = "esemkaAirlines - Flight Booking";
+            this.Load += new System.EventHandler(this.frmSeatChoose_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,13 +207,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPassenger;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox cmbSeatRow;
+        private System.Windows.Forms.ComboBox cmbSeatNo;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnPassenger;
+        private System.Windows.Forms.Button btnSeatPreview;
+        private System.Windows.Forms.Button btnProcess;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Label labelFlightID;
     }
 }

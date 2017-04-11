@@ -13,6 +13,7 @@ namespace EsemkaAirlines
     public partial class frmBookingResult : Form
     {
         public static string id_flight;
+        public static string id_airplane;
 
         public static string id_booking = frmBooking.id_booking;
         public string origin_flight = frmBooking.origin_flight;
@@ -75,6 +76,7 @@ namespace EsemkaAirlines
             {
                 DataGridViewRow row = this.dataResult.Rows[e.RowIndex];
                 id_flight = row.Cells[0].Value.ToString();
+                id_airplane = row.Cells[6].Value.ToString();
                 labelSelected.Text = "Selected Data : " + id_flight;
             }
         }
