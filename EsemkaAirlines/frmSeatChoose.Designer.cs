@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbPassenger = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbSeatRow = new System.Windows.Forms.ComboBox();
             this.cmbSeatNo = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPassenger = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
             this.labelFlightID = new System.Windows.Forms.Label();
+            this.cmbSeatRow = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -99,15 +99,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Seat Number";
             // 
-            // cmbSeatRow
-            // 
-            this.cmbSeatRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSeatRow.FormattingEnabled = true;
-            this.cmbSeatRow.Location = new System.Drawing.Point(128, 124);
-            this.cmbSeatRow.Name = "cmbSeatRow";
-            this.cmbSeatRow.Size = new System.Drawing.Size(110, 21);
-            this.cmbSeatRow.TabIndex = 9;
-            // 
             // cmbSeatNo
             // 
             this.cmbSeatNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -154,6 +145,7 @@
             this.btnProcess.TabIndex = 14;
             this.btnProcess.Text = "Process Booking";
             this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // labelID
             // 
@@ -174,6 +166,15 @@
             this.labelFlightID.TabIndex = 16;
             this.labelFlightID.Text = "-";
             this.labelFlightID.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // cmbSeatRow
+            // 
+            this.cmbSeatRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeatRow.FormattingEnabled = true;
+            this.cmbSeatRow.Location = new System.Drawing.Point(128, 124);
+            this.cmbSeatRow.Name = "cmbSeatRow";
+            this.cmbSeatRow.Size = new System.Drawing.Size(110, 21);
+            this.cmbSeatRow.TabIndex = 9;
             // 
             // frmSeatChoose
             // 
@@ -210,7 +211,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbPassenger;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbSeatRow;
         private System.Windows.Forms.ComboBox cmbSeatNo;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnPassenger;
@@ -218,5 +218,6 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label labelFlightID;
+        private System.Windows.Forms.ComboBox cmbSeatRow;
     }
 }
