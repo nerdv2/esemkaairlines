@@ -135,6 +135,7 @@
             this.btnPassenger.TabIndex = 12;
             this.btnPassenger.Text = "New Passenger";
             this.btnPassenger.UseVisualStyleBackColor = true;
+            this.btnPassenger.Click += new System.EventHandler(this.btnPassenger_Click);
             // 
             // btnSeatPreview
             // 

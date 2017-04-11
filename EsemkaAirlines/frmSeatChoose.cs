@@ -97,7 +97,14 @@ namespace EsemkaAirlines
 
             for (int i = 1; i <= totalseat; i++)
             {
-                cmbSeatNo.Items.Add(i);
+                if (i <= 9)
+                {
+                    cmbSeatNo.Items.Add("0" + i);
+                }
+                else
+                {
+                    cmbSeatNo.Items.Add(i);
+                }
             }
         }
 
@@ -109,6 +116,13 @@ namespace EsemkaAirlines
         private void frmSeatChoose_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPassenger_Click(object sender, EventArgs e)
+        {
+            frmPassengerAdd form = new frmPassengerAdd();
+            form.Owner = this;
+            form.ShowDialog();
         }
     }
 }
