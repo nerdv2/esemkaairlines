@@ -48,14 +48,14 @@
             this.checkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSchedule = new System.Windows.Forms.Button();
+            this.btnAirplane = new System.Windows.Forms.Button();
+            this.btnAirport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBooking = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCheckIn = new System.Windows.Forms.Button();
+            this.btnFlightData = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -117,8 +117,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -128,14 +129,16 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // schedulingToolStripMenuItem
             // 
@@ -217,9 +220,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnSchedule);
+            this.tabPage1.Controls.Add(this.btnAirplane);
+            this.tabPage1.Controls.Add(this.btnAirport);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -228,39 +231,39 @@
             this.tabPage1.Text = "Scheduling";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSchedule
             // 
-            this.button3.Location = new System.Drawing.Point(374, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 42);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Schedule Data";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnSchedule.Location = new System.Drawing.Point(374, 28);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(146, 42);
+            this.btnSchedule.TabIndex = 2;
+            this.btnSchedule.Text = "Schedule Data";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnAirplane
             // 
-            this.button2.Location = new System.Drawing.Point(189, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 42);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Airplane Data";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAirplane.Location = new System.Drawing.Point(189, 28);
+            this.btnAirplane.Name = "btnAirplane";
+            this.btnAirplane.Size = new System.Drawing.Size(146, 42);
+            this.btnAirplane.TabIndex = 1;
+            this.btnAirplane.Text = "Airplane Data";
+            this.btnAirplane.UseVisualStyleBackColor = true;
+            this.btnAirplane.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnAirport
             // 
-            this.button1.Location = new System.Drawing.Point(6, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Airport Data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAirport.Location = new System.Drawing.Point(6, 28);
+            this.btnAirport.Name = "btnAirport";
+            this.btnAirport.Size = new System.Drawing.Size(146, 42);
+            this.btnAirport.TabIndex = 0;
+            this.btnAirport.Text = "Airport Data";
+            this.btnAirport.UseVisualStyleBackColor = true;
+            this.btnAirport.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.btnBooking);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -269,20 +272,20 @@
             this.tabPage2.Text = "Booking";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnBooking
             // 
-            this.button4.Location = new System.Drawing.Point(190, 29);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 42);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Booking Data";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnBooking.Location = new System.Drawing.Point(190, 29);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(146, 42);
+            this.btnBooking.TabIndex = 1;
+            this.btnBooking.Text = "Booking Data";
+            this.btnBooking.UseVisualStyleBackColor = true;
+            this.btnBooking.Click += new System.EventHandler(this.button4_Click);
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.btnCheckIn);
+            this.tabPage3.Controls.Add(this.btnFlightData);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(526, 100);
@@ -290,23 +293,23 @@
             this.tabPage3.Text = "Boarding";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnCheckIn
             // 
-            this.button6.Location = new System.Drawing.Point(290, 29);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 42);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Check-in";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Location = new System.Drawing.Point(290, 29);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(146, 42);
+            this.btnCheckIn.TabIndex = 2;
+            this.btnCheckIn.Text = "Check-in";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnFlightData
             // 
-            this.button5.Location = new System.Drawing.Point(85, 29);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 42);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Flight Data";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnFlightData.Location = new System.Drawing.Point(85, 29);
+            this.btnFlightData.Name = "btnFlightData";
+            this.btnFlightData.Size = new System.Drawing.Size(146, 42);
+            this.btnFlightData.TabIndex = 1;
+            this.btnFlightData.Text = "Flight Data";
+            this.btnFlightData.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -320,6 +323,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "esemkaAirlines";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -355,14 +360,14 @@
         private System.Windows.Forms.ToolStripMenuItem checkinToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Button btnAirplane;
+        private System.Windows.Forms.Button btnAirport;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBooking;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Button btnFlightData;
     }
 }
 

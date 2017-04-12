@@ -127,7 +127,38 @@ namespace EsemkaAirlines
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
+            processBooking();
+        }
 
+        private void processBooking()
+        {
+            SQL con = new SQL();
+            MySqlConnection conn = con.getConn();
+            try
+            {
+                DataRowView drvPassenger = cmbPassenger.SelectedItem as DataRowView;
+
+                conn.Open();
+                string sql = "INSERT INTO flight_ticket VALUES(@code, @bookingcode, @passengercode, @seatrow, @seatno)";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@code", id_flight + "-" + cmbSeatRow.SelectedItem + cmbSeatNo.SelectedItem);
+                cmd.Parameters.AddWithValue("@bookingcode", id_booking);
+                cmd.Parameters.AddWithValue("@passengercode", drvPassenger["passenger_code"].ToString());
+                cmd.Parameters.AddWithValue("@seatrow", cmbSeatRow.SelectedItem);
+                cmd.Parameters.AddWithValue("@seatno", cmbSeatNo.SelectedItem);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ticket Data Success!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

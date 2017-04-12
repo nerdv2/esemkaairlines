@@ -137,8 +137,9 @@ namespace EsemkaAirlines
                 departure_date = cmbDeparture.Text.ToString();
 
                 frmBookingResult form = new frmBookingResult();
-                form.Owner = this;
-                form.ShowDialog();
+                //form.Owner = this;
+                form.Show();
+                this.Close();
 
                 //MessageBox.Show(id_booking + " + " + origin_flight + " + " + dest_flight + " + " + flight_type + " + " + departure_date);
                 
@@ -154,9 +155,10 @@ namespace EsemkaAirlines
                 flight_type = "round";
                 departure_date = cmbDepartureRound.Text.ToString();
 
-                frmBookingResult form = new frmBookingResult();
-                form.Owner = this;
-                form.ShowDialog();
+                frmBookingRoundResult form = new frmBookingRoundResult();
+                //form.Owner = this;
+                form.Show();
+                this.Close();
                 
                 //MessageBox.Show(id_booking + " + " + origin_flight + " + " + dest_flight + " + " + flight_type + " + " + departure_date);
             }

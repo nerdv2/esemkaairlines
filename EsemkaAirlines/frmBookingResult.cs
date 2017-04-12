@@ -89,8 +89,9 @@ namespace EsemkaAirlines
         private void btnProcess_Click(object sender, EventArgs e)
         {
             frmPassengerAmount form = new frmPassengerAmount();
-            form.Owner = this;
+            //form.Owner = this;
             form.Show();
+            this.Close();
         }
     }
 }

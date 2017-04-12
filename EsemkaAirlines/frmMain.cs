@@ -11,9 +11,53 @@ namespace EsemkaAirlines
 {
     public partial class frmMain : Form
     {
+        string status;
         public frmMain()
         {
             InitializeComponent();
+            status = frmLogin.status;
+            initializeView();
+        }
+
+        private void initializeView()
+        {
+            if (status == "admin")
+            {
+            }
+            else if (status == "schedule")
+            {
+                btnBooking.Enabled = false;
+                btnCheckIn.Enabled = false;
+                btnFlightData.Enabled = false;
+                bookingDataToolStripMenuItem.Enabled = false;
+                boardingToolStripMenuItem.Enabled = false;
+            }
+            else if (status == "booking")
+            {
+
+                btnBooking.Enabled = true;
+                btnCheckIn.Enabled = false;
+                btnFlightData.Enabled = false;
+                bookingDataToolStripMenuItem.Enabled = true;
+                boardingToolStripMenuItem.Enabled = false;
+                scheduleDataToolStripMenuItem.Enabled = false;
+                btnAirplane.Enabled = false;
+                btnAirport.Enabled = false;
+                btnSchedule.Enabled = false;
+            }
+            else if (status == "boarding")
+            {
+
+                btnBooking.Enabled = false;
+                btnCheckIn.Enabled = true;
+                btnFlightData.Enabled = true;
+                bookingDataToolStripMenuItem.Enabled = false;
+                boardingToolStripMenuItem.Enabled = true;
+                scheduleDataToolStripMenuItem.Enabled = false;
+                btnAirplane.Enabled = false;
+                btnAirport.Enabled = false;
+                btnSchedule.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,6 +106,31 @@ namespace EsemkaAirlines
         {
             frmBooking form = new frmBooking();
             form.Show();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("(c) 2017 - Gema Aji Wardian/oeltimacreation");
         }
     }
 }
