@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataReturnResult = new System.Windows.Forms.DataGridView();
+            this.labelReturnSelected = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataReturnResult)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // labelSelected
             // 
             this.labelSelected.AutoSize = true;
-            this.labelSelected.Location = new System.Drawing.Point(320, 479);
+            this.labelSelected.Location = new System.Drawing.Point(450, 253);
             this.labelSelected.Name = "labelSelected";
             this.labelSelected.Size = new System.Drawing.Size(81, 13);
             this.labelSelected.TabIndex = 18;
@@ -88,6 +89,7 @@
             this.dataResult.ReadOnly = true;
             this.dataResult.Size = new System.Drawing.Size(627, 150);
             this.dataResult.TabIndex = 14;
+            this.dataResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataResult_CellClick);
             // 
             // labelID
             // 
@@ -137,12 +139,23 @@
             this.dataReturnResult.ReadOnly = true;
             this.dataReturnResult.Size = new System.Drawing.Size(627, 150);
             this.dataReturnResult.TabIndex = 19;
+            this.dataReturnResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataReturnResult_CellClick);
+            // 
+            // labelReturnSelected
+            // 
+            this.labelReturnSelected.AutoSize = true;
+            this.labelReturnSelected.Location = new System.Drawing.Point(450, 278);
+            this.labelReturnSelected.Name = "labelReturnSelected";
+            this.labelReturnSelected.Size = new System.Drawing.Size(81, 13);
+            this.labelReturnSelected.TabIndex = 21;
+            this.labelReturnSelected.Text = "Selected Data :";
             // 
             // frmBookingRoundResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 514);
+            this.Controls.Add(this.labelReturnSelected);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataReturnResult);
             this.Controls.Add(this.labelSelected);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataReturnResult;
+        private System.Windows.Forms.Label labelReturnSelected;
     }
 }

@@ -55,12 +55,33 @@ namespace EsemkaAirlines
             }
         }
 
-        private void frmBookingResult_Load(object sender, EventArgs e)
+        public void getSeat()
         {
+            SQL con = new SQL();
+            MySqlConnection conn = con.getConn();
+            try
+            {
+                conn.Open();
+                string sql = "CALL getSeatAmount('"+id_flight+"')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    labelSeat.Text = reader["flight_seatleft"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void dataResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frmBookingResult_Load(object sender, EventArgs e)
         {
 
         }
@@ -78,6 +99,7 @@ namespace EsemkaAirlines
                 id_flight = row.Cells[0].Value.ToString();
                 id_airplane = row.Cells[6].Value.ToString();
                 labelSelected.Text = "Selected Data : " + id_flight;
+                getSeat();
             }
         }
 

@@ -154,6 +154,7 @@ namespace EsemkaAirlines
                 dest_flight = drvDestination["airport_code"].ToString();
                 flight_type = "round";
                 departure_date = cmbDepartureRound.Text.ToString();
+                return_date = cmbReturnRound.Text.ToString();
 
                 frmBookingRoundResult form = new frmBookingRoundResult();
                 //form.Owner = this;

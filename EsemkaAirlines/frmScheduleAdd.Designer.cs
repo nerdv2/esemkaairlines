@@ -180,7 +180,7 @@
             // 
             // txtDeparture
             // 
-            this.txtDeparture.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.txtDeparture.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.txtDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtDeparture.Location = new System.Drawing.Point(162, 179);
             this.txtDeparture.Name = "txtDeparture";
@@ -189,7 +189,7 @@
             // 
             // txtArrival
             // 
-            this.txtArrival.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.txtArrival.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.txtArrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtArrival.Location = new System.Drawing.Point(162, 218);
             this.txtArrival.Name = "txtArrival";

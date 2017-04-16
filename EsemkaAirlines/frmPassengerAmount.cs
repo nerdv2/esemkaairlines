@@ -14,6 +14,7 @@ namespace EsemkaAirlines
     {
         public string id_booking = frmBookingResult.id_booking;
         public string id_flight = frmBookingResult.id_flight;
+        public string id_return = null;
         public frmPassengerAmount()
         {
             InitializeComponent();
@@ -64,12 +65,13 @@ namespace EsemkaAirlines
             try
             {
                 conn.Open();
-                string sql = "INSERT INTO flight_booking VALUES(@code, @flightcode, @amount, @date)";
+                string sql = "INSERT INTO flight_booking VALUES(@code, @flightcode, @return, @amount, @date)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@code", id_booking);
                 cmd.Parameters.AddWithValue("@flightcode", id_flight);
                 cmd.Parameters.AddWithValue("@amount", txtAmount.Text);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cmd.Parameters.AddWithValue("@return", id_return);
 
                 cmd.ExecuteNonQuery();
             }

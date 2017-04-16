@@ -36,6 +36,8 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.labelSelected = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelSeat = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             this.dataResult.Size = new System.Drawing.Size(627, 150);
             this.dataResult.TabIndex = 6;
             this.dataResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataResult_CellClick);
-            this.dataResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataResult_CellContentClick);
+            this.dataResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataResult_CellClick);
             // 
             // label3
             // 
@@ -120,11 +122,31 @@
             this.labelSelected.Text = "Selected Data :";
             this.labelSelected.Click += new System.EventHandler(this.labelSelected_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(462, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Seat Available : ";
+            // 
+            // labelSeat
+            // 
+            this.labelSeat.AutoSize = true;
+            this.labelSeat.Location = new System.Drawing.Point(552, 73);
+            this.labelSeat.Name = "labelSeat";
+            this.labelSeat.Size = new System.Drawing.Size(10, 13);
+            this.labelSeat.TabIndex = 12;
+            this.labelSeat.Text = "-";
+            // 
             // frmBookingResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 297);
+            this.Controls.Add(this.labelSeat);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.labelSelected);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnProcess);
@@ -152,5 +174,7 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label labelSelected;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelSeat;
     }
 }
