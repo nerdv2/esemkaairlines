@@ -113,6 +113,14 @@ namespace EsemkaAirlines
             }
         }
 
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+            frmPassengerRoundAmount form = new frmPassengerRoundAmount();
+            //form.Owner = this;
+            form.Show();
+            this.Close();
+        }
+
 
     }
 }

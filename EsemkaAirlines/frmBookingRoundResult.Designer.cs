@@ -69,6 +69,7 @@
             this.btnProcess.TabIndex = 16;
             this.btnProcess.Text = "Select Flight";
             this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // label3
             // 

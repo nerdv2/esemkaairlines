@@ -49,6 +49,7 @@ namespace EsemkaAirlines
             catch (Exception ex)
             {
                 MessageBox.Show("Wrong username or password!");
+                Console.WriteLine(ex.ToString());
             }
             finally
             {
