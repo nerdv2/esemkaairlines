@@ -1,8 +1,9 @@
 /*
-SQLyog Ultimate v12.09 (32 bit)
-MySQL - 5.6.26 : Database - esemka_airlines
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 5.7.15-log : Database - esemka_airlines
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -72,6 +73,7 @@ DROP TABLE IF EXISTS `flight_booking`;
 CREATE TABLE `flight_booking` (
   `booking_code` varchar(25) NOT NULL,
   `booking_flightcode` varchar(25) NOT NULL,
+  `booking_returnflight` varchar(25) DEFAULT NULL,
   `booking_amount` int(11) NOT NULL,
   `booking_entrydate` datetime NOT NULL,
   PRIMARY KEY (`booking_code`),
@@ -81,7 +83,7 @@ CREATE TABLE `flight_booking` (
 
 /*Data for the table `flight_booking` */
 
-insert  into `flight_booking`(`booking_code`,`booking_flightcode`,`booking_amount`,`booking_entrydate`) values ('BK001','BD001',1,'2017-04-12 10:39:55'),('BK002','BD001',2,'2017-04-12 11:34:40');
+insert  into `flight_booking`(`booking_code`,`booking_flightcode`,`booking_returnflight`,`booking_amount`,`booking_entrydate`) values ('BK001','BD001',NULL,1,'2017-04-12 10:39:55'),('BK002','BD001',NULL,2,'2017-04-12 11:34:40'),('BK003','BD001',NULL,1,'2017-04-16 09:06:30'),('BK004','BD002',NULL,1,'2017-04-16 12:22:29'),('BK005','BD003',NULL,1,'2017-04-16 12:28:02');
 
 /*Table structure for table `flight_schedule` */
 
@@ -107,7 +109,7 @@ CREATE TABLE `flight_schedule` (
 
 /*Data for the table `flight_schedule` */
 
-insert  into `flight_schedule`(`flight_code`,`flight_origin`,`flight_destination`,`flight_departure`,`flight_arrival`,`flight_duration`,`flight_airplane`,`flight_price`) values ('AP22','APC','LAX','2017-04-04 10:40:41','2017-04-04 11:40:41','-0 01:00:00.000000','DX-011',100000),('AX-001','APC','DAC','2017-04-04 21:48:48','2017-04-04 22:48:54','1','DNR-1',50000),('BD001','APC','DAC','2017-04-12 10:01:14','2017-04-12 12:01:14','-0 02:00:00.000000','DNR-1',50000);
+insert  into `flight_schedule`(`flight_code`,`flight_origin`,`flight_destination`,`flight_departure`,`flight_arrival`,`flight_duration`,`flight_airplane`,`flight_price`) values ('AP22','APC','LAX','2017-04-04 10:40:41','2017-04-04 11:40:41','-0 01:00:00.000000','DX-011',100000),('AX-001','APC','DAC','2017-04-04 21:48:48','2017-04-04 22:48:54','1','DNR-1',50000),('BD001','APC','DAC','2017-04-12 10:01:14','2017-04-12 12:01:14','-0 02:00:00.000000','DNR-1',50000),('BD002','DAC','LAX','2017-04-16 09:14:16','2017-04-16 11:14:16','-0 02:00:00.000000','DNR-1',2000000),('BD003','LAX','DAC','2017-04-17 10:14:42','2017-04-17 12:14:42','-0 02:00:00.000000','DX-011',2500000);
 
 /*Table structure for table `flight_ticket` */
 
@@ -128,7 +130,7 @@ CREATE TABLE `flight_ticket` (
 
 /*Data for the table `flight_ticket` */
 
-insert  into `flight_ticket`(`ticket_code`,`ticket_bookingcode`,`ticket_passengercode`,`ticket_seatrow`,`ticket_seatnumber`) values ('BD001-A01','BK001','A32','A','01'),('BD001-C01','BK002','PE001','C','01'),('BD001-C02','BK002','A32','C','02');
+insert  into `flight_ticket`(`ticket_code`,`ticket_bookingcode`,`ticket_passengercode`,`ticket_seatrow`,`ticket_seatnumber`) values ('BD001-A01','BK001','A32','A','01'),('BD001-C01','BK002','PE001','C','01'),('BD001-C02','BK002','A32','C','02'),('BD001-G07','BK003','A32','G','07'),('BD002-B01','BK004','A32','B','01'),('BD003-A01','BK005','A32','A','01');
 
 /*Table structure for table `passenger` */
 
@@ -164,6 +166,25 @@ CREATE TABLE `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`user_id`,`user_name`,`user_password`,`user_role`) values (1,'admin','admin','admin'),(2,'schedule','schedule','schedule'),(3,'booking','booking','booking'),(4,'boarding','boarding','boarding');
+
+/* Procedure structure for procedure `getSeatAmount` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `getSeatAmount` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getSeatAmount`(IN flightID VARCHAR(255))
+BEGIN
+SELECT flight_booking.`booking_flightcode`, 
+	SUM(flight_booking.`booking_amount`) AS 'booking_total' , 
+	airplane.`airplane_totalseat` , 
+	airplane.`airplane_totalseat`-SUM(flight_booking.`booking_amount`) AS 'flight_seatleft'
+FROM flight_booking, airplane, flight_schedule 
+WHERE flight_booking.`booking_flightcode` = flightID
+ AND flight_schedule.`flight_airplane` = airplane.`airplane_code` 
+ AND flight_booking.`booking_flightcode` = flight_schedule.`flight_code`;
+    END */$$
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
