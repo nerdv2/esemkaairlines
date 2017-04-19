@@ -133,6 +133,7 @@
             this.btnProcess.TabIndex = 26;
             this.btnProcess.Text = "Process Booking";
             this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // txtAmount
             // 

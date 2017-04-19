@@ -82,5 +82,58 @@ namespace EsemkaAirlines
                 conn.Close();
             }
         }
+
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtAmount.Text))
+            {
+                saveBookingData();
+                //launchForm();
+            }
+        }
+
+        public void saveBookingData()
+        {
+            SQL con = new SQL();
+            MySqlConnection conn = con.getConn();
+            try
+            {
+                conn.Open();
+                string sql = "INSERT INTO flight_booking VALUES(@code, @flightcode, @returncode, @amount, @date)";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@code", id_booking);
+                cmd.Parameters.AddWithValue("@flightcode", id_flight);
+                cmd.Parameters.AddWithValue("@returncode", id_return_flight);
+                cmd.Parameters.AddWithValue("@amount", txtAmount.Text);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                cmd.ExecuteNonQuery();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void launchForm()
+        {
+            frmSeatChoose form = new frmSeatChoose();
+            form.Owner = this;
+
+            int amount = int.Parse(txtAmount.Text);
+            for (int i = 0; i < amount; i++)
+            {
+
+            }
+
+            frmBookingConfirm form2 = new frmBookingConfirm();
+            form.Show();
+            this.Close();
+        }
     }
 }

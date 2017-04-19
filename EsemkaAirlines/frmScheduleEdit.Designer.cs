@@ -58,7 +58,7 @@
             // 
             // txtArrival
             // 
-            this.txtArrival.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.txtArrival.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.txtArrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtArrival.Location = new System.Drawing.Point(164, 220);
             this.txtArrival.Name = "txtArrival";
@@ -67,7 +67,7 @@
             // 
             // txtDeparture
             // 
-            this.txtDeparture.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.txtDeparture.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.txtDeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtDeparture.Location = new System.Drawing.Point(164, 181);
             this.txtDeparture.Name = "txtDeparture";
@@ -146,6 +146,7 @@
             this.btnSubmit.TabIndex = 52;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label6
             // 

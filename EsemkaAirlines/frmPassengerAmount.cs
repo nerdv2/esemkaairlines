@@ -70,7 +70,7 @@ namespace EsemkaAirlines
                 cmd.Parameters.AddWithValue("@code", id_booking);
                 cmd.Parameters.AddWithValue("@flightcode", id_flight);
                 cmd.Parameters.AddWithValue("@amount", txtAmount.Text);
-                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 cmd.Parameters.AddWithValue("@return", id_return);
 
                 cmd.ExecuteNonQuery();
